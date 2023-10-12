@@ -8,7 +8,7 @@
 ## 运行容器(docker run或docker-compose)
 - ### docker run
   ```bash
-  docker run -dit --gpus all -p ssh宿主机开放端口:22 -h 容器主机名 --shm-size 8g --name=容器名 --pid=host 镜像名 /bin/bash
+  docker run -dit --gpus all -p ssh宿主机开放端口:22 -h 容器主机名 --shm-size 8g --name=容器名 --pid=host 镜像名
   ```
 - ### docker-compose
   ```bash
