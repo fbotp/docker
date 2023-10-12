@@ -4,10 +4,6 @@ FROM debian:latest
 ARG username
 ARG password
 
-# env
-ENV TERM=xterm-256color
-ENV LANG=zh_CN.UTF-8
-
 # replace apt sources && install base software && set locale
 RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware" > /etc/apt/sources.list
 RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware" >> /etc/apt/sources.list
@@ -17,8 +13,12 @@ RUN rm /etc/apt/sources.list.d/debian.sources
 RUN apt-get update && apt-get install apt-transport-https ca-certificates -y
 RUN sed -i "s/http/https/g" /etc/apt/sources.list
 RUN ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-RUN apt-get update && apt-get install openssh-server wget curl nano vim tzdata dialog python3-pip sudo -y
+RUN apt-get update && apt-get install openssh-server wget curl nano vim tzdata dialog python3-pip sudo -locales -y
 RUN dpkg-reconfigure -f noninteractive tzdata
+
+# env
+ENV TERM=xterm-256color
+ENV LANG=zh_CN.UTF-8
 
 # add user
 RUN useradd -ms /bin/bash $username
