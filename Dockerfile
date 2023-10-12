@@ -32,6 +32,7 @@ RUN pip3 install --break-system-packages nvitop -i https://pypi.tuna.tsinghua.ed
 COPY Miniforge3-Linux-x86_64.sh Miniforge.sh
 RUN bash Miniforge.sh -b
 RUN ~/miniforge3/bin/conda init
+RUN ~/miniforge3/bin/mamba init
 RUN rm Miniforge.sh
 
 # swich into root
