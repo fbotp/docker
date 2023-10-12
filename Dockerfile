@@ -1,7 +1,7 @@
 FROM debian:latest
 
 # arg
-ARG user
+ARG username
 ARG password
 
 # env
@@ -20,11 +20,11 @@ RUN apt-get update && apt-get install openssh-server wget curl nano vim tzdata d
 RUN dpkg-reconfigure -f noninteractive tzdata
 
 # add user
-RUN useradd -ms /bin/bash $user
-RUN echo "$user:$password" | chpasswd
-RUN usermod -a -G sudo $user
-USER $user
-WORKDIR /home/$user
+RUN useradd -ms /bin/bash $username
+RUN echo "$username:$password" | chpasswd
+RUN usermod -a -G sudo $username
+USER $username
+WORKDIR /home/$username
 
 # install nvitop for user
 RUN pip3 install --break-system-packages nvitop -i https://pypi.tuna.tsinghua.edu.cn/simple
