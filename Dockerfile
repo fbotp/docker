@@ -38,8 +38,5 @@ RUN rm Miniforge.sh
 # swich into root
 USER root
 
-# clear arg history
-RUN unset HISTFILE
-
 # run terminal
 CMD /bin/bash
