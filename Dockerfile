@@ -21,7 +21,7 @@ ENV TERM=xterm-256color
 ENV LANG=zh_CN.UTF-8
 
 # add user
-RUN useradd -ms /bin/bash $username
+RUN useradd -u 999 -ms /bin/bash $username
 RUN echo "$username:$password" | chpasswd
 RUN usermod -a -G sudo $username
 USER $username
