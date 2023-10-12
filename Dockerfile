@@ -6,6 +6,7 @@ ARG password
 
 # env
 ENV TERM=xterm-256color
+ENV LANG=zh_CN.UTF-8
 
 # replace apt sources && install base software && set locale
 RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware" > /etc/apt/sources.list
