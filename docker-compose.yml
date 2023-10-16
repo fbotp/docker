@@ -8,4 +8,5 @@ services:
     hostname: 容器主机名
     shm_size: 8g
     pid: host
+    tty: true
     restart: always
