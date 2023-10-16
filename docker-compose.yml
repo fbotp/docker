@@ -1,6 +1,6 @@
 version: '3'
 services:
-容器名:
+  容器名:
     image: 镜像名
     runtime: nvidia  # 使用 NVIDIA GPU
     ports:
@@ -8,5 +8,4 @@ services:
     hostname: 容器主机名
     shm_size: 8g
     pid: host
-    command: /bin/bash
     restart: always

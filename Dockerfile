@@ -37,6 +37,8 @@ RUN rm Miniforge.sh
 
 # swich into root
 USER root
+RUN echo "#!/bin/bash\n/etc/init.d/ssh start\n/bin/bash" > /etc/init.d/init.sh
+RUN chmod +x /etc/init.d/init.sh
 
 # run terminal
-CMD /bin/bash
+CMD /etc/init.d/init.sh
