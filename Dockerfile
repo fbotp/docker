@@ -13,7 +13,7 @@ RUN rm /etc/apt/sources.list.d/debian.sources
 RUN apt-get update && apt-get install apt-transport-https ca-certificates -y
 RUN sed -i "s/http/https/g" /etc/apt/sources.list
 RUN ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-RUN apt-get update && apt-get install openssh-server wget curl nano vim tzdata dialog python3-pip sudo -y
+RUN apt-get update && apt-get install openssh-server wget curl nano vim tzdata dialog python3-pip sudo apt-utils -y
 RUN dpkg-reconfigure -f noninteractive tzdata
 
 # add user
