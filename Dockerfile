@@ -41,4 +41,4 @@ RUN echo "#!/bin/bash\n/etc/init.d/ssh start\n/bin/bash" > /etc/init.d/init.sh
 RUN chmod +x /etc/init.d/init.sh
 
 # run terminal
-CMD /etc/init.d/init.sh
+CMD ["/etc/init.d/init.sh"]
