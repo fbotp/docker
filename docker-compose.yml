@@ -1,7 +1,8 @@
 version: '3'
 services:
-  容器名:
+  服务名:
     image: 镜像名
+    container_name: 容器名
     runtime: nvidia  # 使用 NVIDIA GPU
     ports:
       - "ssh宿主机开放端口:22"
