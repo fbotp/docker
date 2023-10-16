@@ -5,12 +5,12 @@
   docker build . --build-arg username=用户名 --build-arg password=密码 -t 镜像名:latest
   ```
 **这种方法会导致username和password在docker history中可见，如介意可删除Dockerfile中创建用户相关的部分，并修改conda install部分，后续进入容器创建用户并安装conda即可**
-## 运行容器(docker run或docker-compose)
+## 运行容器(docker run或docker compose)
 - ### docker run
   ```bash
   docker run -dit --gpus all -p ssh宿主机开放端口:22 -h 容器主机名 --shm-size 8g --name=容器名 --pid=host 镜像名
   ```
-- ### docker-compose
+- ### docker compose
   ```bash
-  docker-compose up -d
+  docker compose up -d
   ```
