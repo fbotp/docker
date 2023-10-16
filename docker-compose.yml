@@ -3,12 +3,18 @@ services:
   服务名:
     image: 镜像名
     container_name: 容器名
-    runtime: nvidia  # 使用 NVIDIA GPU
     ports:
       - "ssh宿主机开放端口:22"
     hostname: 容器主机名
     shm_size: 8g
     pid: host
-    tty: true
     stdin_open: true
+    tty: true
     restart: always
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: all
+            capabilities: [gpu]
