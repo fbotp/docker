@@ -9,4 +9,5 @@ services:
     shm_size: 8g
     pid: host
     tty: true
+    stdin_open: true
     restart: always
