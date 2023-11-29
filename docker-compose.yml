@@ -1,12 +1,11 @@
 version: '3'
 services:
-  服务名:
-    image: 镜像名
-    container_name: 容器名
+  zy:
+    image: user
     ports:
-      - "ssh宿主机开放端口:22"
-    hostname: 容器主机名
-    shm_size: 8g
+      - 6122:22
+    hostname: 4docker
+    shm_size: 32g
     pid: host
     stdin_open: true
     tty: true
@@ -18,3 +17,4 @@ services:
           - driver: nvidia
             count: all
             capabilities: [gpu]
+    command: ["/etc/init.d/init.sh", "1001", "zy", "mei.0601"]
