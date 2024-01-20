@@ -1,0 +1,20 @@
+version: '3'
+services:
+  zxx:
+    image: user
+    ports:
+      - 6122:22
+    hostname: 3docker
+    shm_size: 32g
+    pid: host
+    stdin_open: true
+    tty: true
+    restart: always
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: all
+            capabilities: [gpu]
+    command: ["/etc/init.d/init.sh", "1005", "zxx", "123456"]
